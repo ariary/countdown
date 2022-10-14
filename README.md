@@ -24,7 +24,7 @@ I recommend using [`cewl`](https://github.com/digininja/CeWL) if targetting a co
 » seq 0 100 > extra.txt && seq 1950 2050 >> extra.txt
 ```
 
-3. **Provide cosntraint model**
+3. **Provide constraint model**
 
 ***👋 TL;DR here***
 
