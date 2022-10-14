@@ -57,3 +57,11 @@ Install `nim`
 
 * I am pretty sure similar projects already exist and may be better, but my google fu skills were not sufficient to find them (btw I like making my own tools)
 * I try my best to make the right compute, considering the different constraints, but some mistakes might be present (enumeration logic can be very confusing sometimes)
+
+## Supplementary notes
+
+With a cluster of GPU *(like the ZOTAC GTX 1050 Ti Min)* it is theorically possible to crack tens of millions more hashes per second. It is affordable.
+
+* So you can have an idea about how many seconds you need to test against the wordlist by dividing the #Passwords by 10 000 000
+* Divide the previous result by 86400 to get an idea in days
+
