@@ -15,7 +15,7 @@ I recommend using [`cewl`](https://github.com/digininja/CeWL) if targetting a co
 ```shell
 # extract word that are repeated at least 115 times in the company site
 » cewl --with-numbers -c https://[TARGET] > cewl_count.txt
-» ./sort_cewl cewl_count.txt 15 > min_15_from_cewl.txt
+» sort_cewl cewl_count.txt 15 > min_15_from_cewl.txt
 ```
 
 2. **Construct "extra" wordlist (include special characters + other custom ones)**
@@ -50,7 +50,7 @@ It is possible to play with:
 ## .. I want to use it
 Install `nim`
 ```shell
-» git clone https://github.com/ariary/countdown && cd countdown && make build.countdown
+» git clone https://github.com/ariary/countdown && cd countdown && make build.countdown && make build.sort_cewl
 ```
 
 ## Disclaimer
