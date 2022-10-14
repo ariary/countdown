@@ -1,6 +1,7 @@
 import terminal
 import std/math
-import std/strformat
+import std/algorithm
+import std/sequtils
 
 const PREFIX1:string =  ansiForegroundColorCode(fgBlue) & "[" &  ansiForegroundColorCode(fgCyan) & "*" &  ansiForegroundColorCode(fgBlue) & "]" & ansiForegroundColorCode(fgCyan) & " "
 const PREFIX2:string =  ansiForegroundColorCode(fgBlue) & "[" &  ansiForegroundColorCode(fgGreen) & "*" &  ansiForegroundColorCode(fgBlue) & "]" & ansiForegroundColorCode(fgGreen) & " "
@@ -24,6 +25,21 @@ func arrangement(n, k: int): int =
   for i in 0 ..< k:
     res = res * (n - i)
   return res
+
+proc humanPrintableInt(n:int):string=
+    var integerStr:string =  $n
+    integerStr.reverse()
+    var index = 0
+    var resStr:string
+    for i in toSeq(1..len(integerStr)).filterIt(it mod 3 == 0):
+        resStr &= integerStr[index .. i-1] & " "
+        index = i
+    if len(integerStr)-1 mod 3 != 0:
+        resStr &= integerStr[index .. len(integerStr)-1]
+    
+    resStr.reverse()
+    return resStr
+
 
 proc Count(len:int,lenExtra: int,meanWordLength:int=5,maxSubstitution:int=3,maxUpper:int=1,fixedUpper:bool=false,fixedSubstitution:bool=false,maxWords:int=2,maxExtraWords:int=3,beginWithExtra:bool=false,extraFollowing:int=1,verbose:bool=true): void =
     if extraFollowing == 0:
@@ -123,44 +139,9 @@ proc Count(len:int,lenExtra: int,meanWordLength:int=5,maxSubstitution:int=3,maxU
             echo "\t➙ entrypoints per combination: ", entrypoints
             echo "\t➙ possible extra words combinations: ", extraWordsCombinations
             echo "\t➙ add combination to final wordlists length: ", extraWordsCombinations
-        
-        ### inject extra characters
 
-
-    # var nLenExtra = lenExtra
-    # if extraFollowing > 1:
-    #     ## If extraFollowing > 1 consider adding empty set to the extra character (ease to treat all the cases), adding empty is the same has no addition
-    #     nLenExtra += 1
-    
-    # ## number of insertion point for extra characters
-    # if verbose:
-    #     styledEcho(PREFIX2,"Determine number of extra words entrypoint possibilities",fgDefault)
-    # var entrypoint:int
-    # if fixedSubstitution:
-    #     if not beginWithExtra:
-    #         entrypoint = 1*extraFollowing
-    #     else:
-    #         entrypoint = 2*extraFollowing
-    # else:
-    #     entrypoint =(maxWords+1) * extraFollowing
-
-    # if verbose:
-    #     echo "entrypoint possibilities: ",entrypoint
-    
-    # ## Inject extra wordlist in entrypoint len ^ entrypoint
-    # if verbose:
-    #     styledEcho(PREFIX2,"Inject extra words in the entrypoints",fgDefault)
-    # var possibilities:int = 0
-    # for index in 1 .. maxExtraWords:
-    #     var injectionCombination = lenExtra ^ index # pow as we can have duplications
-    #     possibilities += injectionCombination
-    #     if verbose:
-    #         echo "add \"",index," extra word(s)\" case:"
-    #         echo "\tinjections pattern possible: ", injectionCombination
-
-    # possibilities *= nLen 
     if verbose:
-        styledEcho fgGreen, "\n\n🧮 Possibilities: ", fgDefault, $lenFinalWordlist
+        styledEcho fgGreen, "\n\n🧮 Possibilities: ", fgDefault, humanPrintableInt(lenFinalWordlist)
         echo "\n"
     else:
         echo lenFinalWordlist

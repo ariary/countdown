@@ -27,6 +27,7 @@ I recommend using [`cewl`](https://github.com/digininja/CeWL) if targetting a co
 3. **Provide cosntraint model**
 
 ***👋 TL;DR here***
+
 It is possible to play with:
  * The substitution numbers in words (*e.g* `A` to `4`)
  * The numbers of Uppercase letters in words
