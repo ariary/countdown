@@ -32,7 +32,7 @@ It is possible to play with:
  * The substitution numbers in words (*e.g* `A` to `4`)
  * The numbers of Uppercase letters in words
  * The number of words from the wordlist
- * The number of extra-words from the wordlist and their position
+ * The number of words from the "extra wordlist" and their positions
 
 ```shell
 # Compute different variables about wordlist
