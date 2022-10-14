@@ -134,7 +134,7 @@ proc Count(len:int64,lenExtra: int64,meanWordLength:int64=5,maxSubstitution:int6
             entrypoints =(index+1) * extraFollowing
         
         var extraWordsCombinations = lenExtra.initBigInt.pow entrypoints
-        lenFinalWordlist += extraWordsCombinations * nLen.initBigInt
+        lenFinalWordlist += extraWordsCombinations * wordsCombinations.initBigInt
         # let extraWordsCombinations:int64=lenExtra^entrypoints
         # lenFinalWordlist += extraWordsCombinations
         if verbose:
