@@ -71,7 +71,7 @@ proc Count(len:int64,lenExtra: int64,meanWordLength:int64=5,maxSubstitution:int6
             if verbose:
                 echo "• add \"", index, " uppercase letter(s)\" case:"
                 echo "\t➙ possible variation by words: ", oneWordVariation
-                echo "\t➙ alls possible variations added: ", allVariations
+                echo "\t➙ all possible variations added: ", allVariations
             nLen += allVariations
     else:
         case maxUpper:
